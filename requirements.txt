@@ -1,0 +1,5 @@
+dotenv
+pandas>=2.2.2,<2.3
+psycopg2-binary>=2.9.5,<2.10
+pymongo>=3.12.3,<4.0
+psutil>=5.9.0,<6.0
