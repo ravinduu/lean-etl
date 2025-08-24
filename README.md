@@ -31,7 +31,7 @@ Create the database and collection:
 
 ```
 use ride_share
-db.createCollection("drivers")
+db.createCollection("rides")
 ```
 
 Insert sample data: (use AI tools to create the full dataset)
