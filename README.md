@@ -14,10 +14,11 @@ It extracts documents from MongoDB, transforms them into tabular form using Pand
 
 Clone this repository and install dependencies:
 
+```
 git clone <your-repo-url>
 cd <your-repo>
 pip install -r requirements.txt
-
+```
 ---
 
 ## Database Setup
@@ -28,12 +29,17 @@ Start MongoDB locally or connect to MongoDB Atlas.
 
 Create the database and collection:
 
+```
 use ride_share
 db.createCollection("drivers")
+```
 
 Insert sample data: (use AI tools to create the full dataset)
-
+```
 {
+  "_id": {
+    "$oid": "66c7b3c2e7428f5217f5c712"
+  },
   "driver_id": "d-2345678",
   "first_name": "John",
   "last_name": "Smith",
@@ -48,22 +54,39 @@ Insert sample data: (use AI tools to create the full dataset)
   "rides": [
     {
       "ride_id": "r-321098765",
-      "pickup_location": {"latitude": 40.7128, "longitude": -74.006, "address": "Wall Street, New York, NY"},
-      "dropoff_location": {"latitude": 40.758, "longitude": -73.9855, "address": "Times Square, New York, NY"},
+      "pickup_location": {
+        "latitude": 40.7128,
+        "longitude": -74.006,
+        "address": "Wall Street, New York, NY"
+      },
+      "dropoff_location": {
+        "latitude": 40.758,
+        "longitude": -73.9855,
+        "address": "Times Square, New York, NY"
+      },
       "miles_driven": 2.5,
       "fare_amount": 15.2,
       "ride_category": "UberX"
     },
     {
       "ride_id": "r-654321098",
-      "pickup_location": {"latitude": 40.758, "longitude": -73.9855, "address": "Times Square, New York, NY"},
-      "dropoff_location": {"latitude": 40.7128, "longitude": -74.006, "address": "Wall Street, New York, NY"},
+      "pickup_location": {
+        "latitude": 40.758,
+        "longitude": -73.9855,
+        "address": "Times Square, New York, NY"
+      },
+      "dropoff_location": {
+        "latitude": 40.7128,
+        "longitude": -74.006,
+        "address": "Wall Street, New York, NY"
+      },
       "miles_driven": 2.8,
       "fare_amount": 16.5,
       "ride_category": "UberXL"
     }
   ]
 }
+```
 
 ---
 
@@ -71,6 +94,7 @@ Insert sample data: (use AI tools to create the full dataset)
 
 Connect as postgres user:
 
+```
 psql -U postgres
 
 Create database and tables:
@@ -91,3 +115,4 @@ CREATE TABLE driver_data (
 CREATE TABLE vehicle_data (
     driver_uuid TEXT REFERENCES driver_data(driver_uuid),
     vehicle
+```
